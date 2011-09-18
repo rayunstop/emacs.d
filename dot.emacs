@@ -155,10 +155,10 @@
 (add-to-list 'load-path "~/.emacs.d/plugin/tabbar")
 (require 'tabbar)
 (tabbar-mode)
-(global-set-key (kbd "<s-up>") 'tabbar-backward-group)
-(global-set-key (kbd "<s-down>") 'tabbar-forward-group)
-(global-set-key (kbd "<s-left>") 'tabbar-backward)
-(global-set-key (kbd "<s-right>") 'tabbar-forward)
+(global-set-key (kbd "C-;") 'tabbar-backward-group)
+(global-set-key (kbd "C-'") 'tabbar-forward-group)
+(global-set-key (kbd "C-,") 'tabbar-backward)
+(global-set-key (kbd "C-.") 'tabbar-forward)
 
 
 ;------------------------------------------
@@ -186,6 +186,19 @@
 )
 (add-hook 'c-mode-hook 'my-c-mode-common-hook)
 
+;------------------------------------------
+;
+;增加对cc-mode的特殊支持
+;
+;------------------------------------------
+(defun my-c++-mode-common-hook()
+  ;
+  ;常规配置
+  ;
+  (setq c-basic-offset 4)
+  (c-set-style "K&R")
+)
+(add-hook 'c++-mode-hook 'my-c++-mode-common-hook)
 
 ;------------------------------------------
 ;
@@ -293,7 +306,5 @@
 ;设置etags的find，next，和back绑定快捷键
 ;
 ;------------------------------------------
-;(global-set-key (kbd "M-.") 'find-tag)  ;默认值
-;(global-set-key (kbd "M-,") 'tags-loop-continue) ;默认值
 (global-set-key (kbd "M-?") 'pop-tag-mark)
 
