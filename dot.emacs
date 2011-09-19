@@ -172,6 +172,16 @@
 (ac-config-default)
 
 
+
+;------------------------------------------
+;
+;c风格的一些基础设置
+;
+;------------------------------------------
+(defun my-c-style-base-hook
+  (setq c-basic-offset 4)
+  (c-set-style "K&R")
+)
 ;------------------------------------------
 ;
 ;增加对c-mode的特殊支持
@@ -181,11 +191,9 @@
   ;
   ;常规配置
   ;
-  (setq c-basic-offset 4)
-  (c-set-style "K&R")
+  (my-c-style-base-hook)
 )
 (add-hook 'c-mode-hook 'my-c-mode-common-hook)
-
 ;------------------------------------------
 ;
 ;增加对cc-mode的特殊支持
@@ -195,10 +203,12 @@
   ;
   ;常规配置
   ;
-  (setq c-basic-offset 4)
-  (c-set-style "K&R")
+  (my-c-style-base-hook)
 )
 (add-hook 'c++-mode-hook 'my-c++-mode-common-hook)
+
+
+
 
 ;------------------------------------------
 ;
@@ -308,3 +318,10 @@
 ;------------------------------------------
 (global-set-key (kbd "M-?") 'pop-tag-mark)
 
+;------------------------------------------
+;
+;设置gtag-mode
+;
+;------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/plugin/gtags/")
+(require 'gtags)
