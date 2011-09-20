@@ -172,24 +172,16 @@
 (ac-config-default)
 
 
-;------------------------------------------
-;
-;设置gtag-mode
-;
-;------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/plugin/gtags/")
-(require 'xgtags)
-
 
 ;------------------------------------------
 ;
 ;c风格的一些基础设置
 ;
 ;------------------------------------------
-(defun my-c-style-base-hook()
+(defun my-c-style-base-hook
   (setq c-basic-offset 4)
   (c-set-style "K&R")
-  (xgtags-mode 1)
+  ()
 )
 ;------------------------------------------
 ;
@@ -327,3 +319,10 @@
 ;------------------------------------------
 (global-set-key (kbd "M-?") 'pop-tag-mark)
 
+;------------------------------------------
+;
+;设置gtag-mode
+;
+;------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/plugin/gtags/")
+(require 'gtags)
