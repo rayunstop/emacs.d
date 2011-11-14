@@ -18,7 +18,10 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+)
+
+
+
 
 ;------------------------------------------
 ;
@@ -30,7 +33,7 @@
   (top . 0)
   (left . 0)
   (height . 1280)
-  (width . 900)
+  (width . 800)
 ))
  
 ;------------------------------------------
@@ -95,9 +98,10 @@
 ;
 ;------------------------------------------
 (setq tab-width 4 indent-tabs-mode t)
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode t)
 (setq-default show-paren-mode t)
 (setq indent-line-function 'indent-relative-maybe)
+
 
 ;------------------------------------------
 ;
@@ -122,10 +126,12 @@
 
 ;------------------------------------------
 ;
-;设置成窄光标
+;设置成窄光标并且不让它闪
 ;
 ;------------------------------------------
 (setq-default cursor-type 'bar)
+(blink-cursor-mode nil)
+
 
 ;------------------------------------------
 ;
@@ -152,13 +158,13 @@
 ;打开多个文件可以有一个tabbar
 ;
 ;------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/plugin/tabbar")
-(require 'tabbar)
-(tabbar-mode)
-(global-set-key (kbd "C-;") 'tabbar-backward-group)
-(global-set-key (kbd "C-'") 'tabbar-forward-group)
-(global-set-key (kbd "C-,") 'tabbar-backward)
-(global-set-key (kbd "C-.") 'tabbar-forward)
+;(add-to-list 'load-path "~/.emacs.d/plugin/tabbar")
+;(require 'tabbar)
+;(tabbar-mode)
+;(global-set-key (kbd "C-;") 'tabbar-backward-group)
+;(global-set-key (kbd "C-'") 'tabbar-forward-group)
+;(global-set-key (kbd "C-,") 'tabbar-backward)
+;(global-set-key (kbd "C-.") 'tabbar-forward)
 
 
 ;------------------------------------------
@@ -187,9 +193,9 @@
 ;
 ;------------------------------------------
 (defun my-c-style-base-hook()
-  (setq c-basic-offset 4)
   (c-set-style "K&R")
-  (xgtags-mode 1)
+;  (xgtags-mode 1)
+  (setq c-basic-offset 4)
 )
 ;------------------------------------------
 ;
@@ -327,3 +333,19 @@
 ;------------------------------------------
 (global-set-key (kbd "M-?") 'pop-tag-mark)
 
+
+;------------------------------------------
+;
+;启用ibuffer
+;
+;------------------------------------------
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+
+;------------------------------------------
+;
+;设置ido-mode
+;
+;------------------------------------------
+(ido-mode t)
