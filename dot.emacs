@@ -32,8 +32,8 @@
 '(
   (top . 0)
   (left . 0)
-  (height . 1280)
-  (width . 800)
+  (height . 47)
+  (width . 175)
 ))
  
 ;------------------------------------------
@@ -130,7 +130,6 @@
 ;
 ;------------------------------------------
 (setq-default cursor-type 'bar)
-(blink-cursor-mode nil)
 
 
 ;------------------------------------------
@@ -139,7 +138,7 @@
 ;
 ;------------------------------------------
 (global-linum-mode t)
-(column-number-mode 1)
+(column-number-mode t)
 
 
 ;------------------------------------------
@@ -155,20 +154,6 @@
 
 ;------------------------------------------
 ;
-;打开多个文件可以有一个tabbar
-;
-;------------------------------------------
-;(add-to-list 'load-path "~/.emacs.d/plugin/tabbar")
-;(require 'tabbar)
-;(tabbar-mode)
-;(global-set-key (kbd "C-;") 'tabbar-backward-group)
-;(global-set-key (kbd "C-'") 'tabbar-forward-group)
-;(global-set-key (kbd "C-,") 'tabbar-backward)
-;(global-set-key (kbd "C-.") 'tabbar-forward)
-
-
-;------------------------------------------
-;
 ;设置auto-complete
 ;
 ;------------------------------------------
@@ -180,23 +165,15 @@
 
 ;------------------------------------------
 ;
-;设置gtag-mode
-;
-;------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/plugin/gtags/")
-(require 'xgtags)
-
-
-;------------------------------------------
-;
 ;c风格的一些基础设置
 ;
 ;------------------------------------------
 (defun my-c-style-base-hook()
   (c-set-style "K&R")
-;  (xgtags-mode 1)
   (setq c-basic-offset 4)
 )
+
+
 ;------------------------------------------
 ;
 ;增加对c-mode的特殊支持
@@ -207,6 +184,24 @@
   ;常规配置
   ;
   (my-c-style-base-hook)
+  '((c-tab-always-indent        . t)
+    (c-hanging-braces-alist     . ((substatement-open after)
+				   (brace-list-open)))
+    (c-hanging-colons-alist     . ((member-init-intro before)
+				   (inher-intro)
+				   (case-label after)
+				   (label after)
+				   (access-label after)))
+    (c-cleanup-list             . (scope-operator
+				   empty-defun-braces
+				   defun-close-semi))
+    (c-offsets-alist            . ((arglist-close . c-lineup-arglist)
+				   (substatement-open . 0)
+				   (case-label        . 0)
+				   (block-open        . 0)
+				   (knr-argdecl-intro . -)))
+    (c-echo-syntactic-information-p . t))
+
 )
 (add-hook 'c-mode-hook 'my-c-mode-common-hook)
 ;------------------------------------------
@@ -231,9 +226,11 @@
 ;
 ;------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/plugin/modes/")
-(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t) 
-(setq auto-mode-alist (cons '("\\.text" . markdown-mode) auto-mode-alist))
+(require 'lua-mode)
+(require 'nginx-mode)
 
+(add-to-list 'load-path "~/.emacs.d/plugin/modes/epresent")
+(require 'epresent)
 
 ;------------------------------------------
 ;
@@ -291,9 +288,7 @@
   (let ((tmp (current-column)))
     (scroll-up 1)
     (line-move-to-column tmp)
-    (forward-line 1)
-    )
-  )
+    (forward-line 1)))
 
 (defun hold-line-scroll-down()
   "Scroll the page with the cursor in the same line"
@@ -302,12 +297,11 @@
   (let ((tmp (current-column)))
     (scroll-down 1)
     (line-move-to-column tmp)
-    (forward-line -1)
-    )
-  )
+    (forward-line -1)))
 
-(global-set-key (kbd "<M-down>") 'hold-line-scroll-up)
-(global-set-key (kbd "<M-up>") 'hold-line-scroll-down)
+(global-set-key (kbd "M-n") 'hold-line-scroll-up)
+(global-set-key (kbd "M-p") 'hold-line-scroll-down)
+
 
 ;------------------------------------------
 ;
@@ -316,14 +310,13 @@
 ;------------------------------------------
 (defun hold-line-and-page-scroll-up()
   (interactive)
-  (scroll-up 1)
-)
+  (scroll-up 1))
 (defun hold-line-and-page-scroll-down()
   (interactive)
-  (scroll-down 1)
-)
-(global-set-key (kbd "M-n") 'hold-line-and-page-scroll-up) 
-(global-set-key (kbd "M-p") 'hold-line-and-page-scroll-down)
+  (scroll-down 1))
+
+(global-set-key (kbd "<M-up>") 'hold-line-and-page-scroll-up)
+(global-set-key (kbd "<M-down>") 'hold-line-and-page-scroll-down)
 
 
 ;------------------------------------------
@@ -349,3 +342,58 @@
 ;
 ;------------------------------------------
 (ido-mode t)
+
+
+;------------------------------------------
+;
+;设置cscope
+;
+;------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/plugin/cscope/")
+(require 'xcscope)
+
+
+;------------------------------------------
+;
+;设置auctex
+;
+;------------------------------------------
+(add-to-list 'load-path' "~/.emacs.d/plugin/auctex/")
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
+(mapc (lambda (mode)
+      (add-hook 'LaTeX-mode-hook mode))
+      (list 'auto-fill-mode
+            'LaTeX-math-mode
+            'turn-on-reftex
+            'linum-mode))
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (setq TeX-auto-untabify t     ; remove all tabs before saving
+                  TeX-engine 'xetex       ; use xelatex default
+                  TeX-show-compilation t) ; display compilation windows
+            (TeX-global-PDF-mode t)       ; PDF mode enable, not plain
+            (setq TeX-save-query nil)
+            (imenu-add-menubar-index)
+            (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)))
+
+
+(defun m-eshell-hook ()
+ 
+; define control p, control n and the up/down arrow
+  (define-key eshell-mode-map [(control p)] 'eshell-previous-matching-input-from-input)
+  (define-key eshell-mode-map [(control n)] 'eshell-next-matching-input-from-input)
+ 
+  (define-key eshell-mode-map [up] 'previous-line)
+  (define-key eshell-mode-map [down] 'next-line)
+)
+ 
+(add-hook 'eshell-mode-hook 'm-eshell-hook)
+
+
+
+
+(add-to-list 'load-path' "~/.emacs.d/plugin/modes/erlang-mode")
+(require 'erlang)
+(require 'erlang-start)
+
