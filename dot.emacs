@@ -13,6 +13,7 @@
  '(inhibit-startup-screen t)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
+
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -32,7 +33,7 @@
 '(
   (top . 0)
   (left . 0)
-  (height . 47)
+  (height . 48)
   (width . 175)
 ))
  
@@ -41,15 +42,15 @@
 ;设置字体
 ;
 ;------------------------------------------
-(set-default-font "DejaVu Sans Mono-14")
+(set-default-font "DejaVu Sans Mono-13")
 (set-fontset-font (frame-parameter nil 'font)
-       'han '("华文黑体" . "unicode-bmp"))
-(set-fontset-font (frame-parameter nil 'font)
-       'cjk-misc '("华文黑体" . "unicode-bmp"))
-(set-fontset-font (frame-parameter nil 'font)
-       'kana '("华文黑体" . "unicode-bmp"))
-(set-fontset-font (frame-parameter nil 'font)
-       'symbol '("华文黑体" . "unicode-bmp"))
+		  'han '("华文黑体" . "utf-8"))
+;; (set-fontset-font (frame-parameter nil 'font)
+;;        'cjk-misc '("华文黑体" . "unicode-bmp"))
+;; (set-fontset-font (frame-parameter nil 'font)
+;;        'kana '("华文黑体" . "unicode-bmp"))
+;; (set-fontset-font (frame-parameter nil 'font)
+;;        'symbol '("华文黑体" . "unicode-bmp"))
 
 
 ;------------------------------------------
@@ -77,11 +78,11 @@
 
 ;------------------------------------------
 ;
-;关闭工具栏
+;关闭工具栏/去掉滚动条
 ;
 ;------------------------------------------
 (tool-bar-mode -1)
-
+(scroll-bar-mode -1)
 
 
 ;------------------------------------------
@@ -149,7 +150,8 @@
 (add-to-list 'load-path "~/.emacs.d/plugin/color-theme-el")
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-dark-blue2)
+(color-theme-deep-blue)
+;(color-theme-dark-blue2)
 
 
 ;------------------------------------------
@@ -226,6 +228,7 @@
 ;
 ;------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/plugin/modes/")
+(require 'markdown-mode)
 (require 'lua-mode)
 (require 'nginx-mode)
 
@@ -242,8 +245,8 @@
 (setq hl-line-face 'my-hl-line-face)
 (face-spec-set 'my-hl-line-face '((t (
                                       :background "DodgerBlue3"
-                                                  ;;:bold
-                                                  ;;:weight nil
+                                                  :bold
+                                                  :weight nil
                                                   :inverse-video nil
                                                   ))))
 (defun wcy-color-theme-adjust-hl-mode-face()
@@ -392,8 +395,28 @@
 
 
 
-
 (add-to-list 'load-path' "~/.emacs.d/plugin/modes/erlang-mode")
 (require 'erlang)
 (require 'erlang-start)
 
+(load-file "~/.emacs.d/plugin/modes/graphviz-dot-mode.el") 
+
+(add-to-list 'load-path' "~/.emacs.d/plugin/modes/go-mode")
+(require 'go-mode)
+(require 'go-mode-load)
+
+
+(defun ems2png ()
+  "use groff and pic to build a png file"
+  (interactive)
+  (save-buffer)
+  (setq filename (file-name-sans-extension (buffer-file-name)))
+  (start-process "ems2png" 
+		 (get-buffer-create "*ems2png-buffer*")
+		 "~/.emacs.d/plugin/ms2png.sh"
+		 filename
+		 )
+  (setq pngname (concat filename ".png"))
+  (find-file pngname)
+)
+(global-set-key (kbd "C-c C-m C-s") 'ems2png)
