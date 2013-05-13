@@ -1,6 +1,0 @@
-;; -*- emacs-lisp -*- <12/05/01 05:03:29 /Users/yuen/.emacs.d/tramp>
-;; Tramp connection history.  Don't change this file.
-;; You can delete it, forcing Tramp to reapply the checks.
-
-((["scpc" "yuanzhuo.pt" "jump1sqa.cm4.taobao.org" nil]
-  nil))
