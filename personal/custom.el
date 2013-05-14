@@ -50,9 +50,6 @@
 
 (ac-config-default)
 
-(scroll-bar-mode nil)
-
-
 (defun hold-line-scroll-up()
   "Scroll the page with the cursor in the same line"
   (interactive)
@@ -69,5 +66,3 @@
 
 (global-set-key (kbd "M-n") 'hold-line-scroll-up)
 (global-set-key (kbd "M-p") 'hold-line-scroll-down)
-
-(scroll-bar-mode nil)
