@@ -1,0 +1,12 @@
+escape      ^Xx
+# ~/.screenrc
+# kill splash screen
+startup_message off
+# replace C-a with C-t
+escape      ^Xx
+# show original screen when exit from emacs/vi
+altscreen   on
+# disable flash screen bell
+vbell       off
+# show caption at bottom of screen
+caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %Y-%m-%d %c"
