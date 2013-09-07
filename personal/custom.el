@@ -43,6 +43,7 @@
     ada-mode
     xml-mode
     sgml-mode
+    go-mode
     ts-mode)
   "Major modes `auto-complete-mode' can run on."
   :type '(repeat symbol)
@@ -69,6 +70,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
 (autoload 'systemtap-mode "systemtap-mode.el")
+
+(require 'go-autocomplete)
+(setq default-tab-width 4)
+(setq-default indent-tabs-mode nil)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
