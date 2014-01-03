@@ -45,7 +45,7 @@
                                 (other-window -1))) ;; back one
 
 ;; Indentation help
-(global-set-key (kbd "C-x ^") 'join-line)
+(global-set-key (kbd "C-^") 'prelude-top-join-line)
 
 ;; Start proced in a similar manner to dired
 (global-set-key (kbd "C-x p") 'proced)
@@ -60,7 +60,7 @@
 (global-set-key (kbd "C-x M-m") 'shell)
 
 ;; If you want to be able to M-x without meta
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+(global-set-key (kbd "C-x C-m") 'smex)
 
 ;; A complementary binding to the apropos-command (C-h a)
 (define-key 'help-command "A" 'apropos)
@@ -96,6 +96,9 @@
 ;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(unless (fboundp 'toggle-frame-fullscreen)
+  (global-set-key (kbd "<f11>") 'prelude-fullscreen))
+
 ;; toggle menu-bar visibility
 (global-set-key (kbd "<f12>") 'menu-bar-mode)
 
@@ -108,19 +111,8 @@
   [remap exchange-point-and-mark]
   'prelude-exchange-point-and-mark)
 
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-
-;; key chords
-(require 'key-chord)
-
-;(key-chord-define-global "jj" 'ace-jump-word-mode)
-;(key-chord-define-global "jl" 'ace-jump-line-mode)
-;(key-chord-define-global "jk" 'ace-jump-char-mode)
-(key-chord-define-global "JJ" 'prelude-switch-to-previous-buffer)
-(key-chord-define-global "UU" 'undo-tree-visualize)
-
-(key-chord-mode +1)
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
+(global-set-key (kbd "s-.") 'ace-jump-mode)
 
 (provide 'prelude-global-keybindings)
 

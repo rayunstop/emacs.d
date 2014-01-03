@@ -34,6 +34,7 @@
 ;;; Code:
 (require 'cl)
 (require 'package)
+
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 ;; set package-user-dir to be relative to Prelude install path
@@ -41,18 +42,34 @@
 (package-initialize)
 
 (defvar prelude-packages
-  '(ace-jump-mode ack-and-a-half dash diminish elisp-slime-nav
-    expand-region flycheck gist
-    git-commit-mode gitconfig-mode gitignore-mode
-    guru-mode helm helm-projectile ido-ubiquitous
-    key-chord magit melpa rainbow-mode
-    smex solarized-theme undo-tree
-    volatile-highlights yasnippet zenburn-theme)
+  '(ace-jump-mode ack-and-a-half anzu
+    browse-kill-ring
+    dash diminish elisp-slime-nav
+    epl expand-region flycheck gist
+    gitconfig-mode gitignore-mode grizzl
+    guru-mode projectile
+    magit move-text rainbow-mode
+    smartparens undo-tree
+    volatile-highlights zenburn-theme)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
   "Check if all packages in `prelude-packages' are installed."
   (every #'package-installed-p prelude-packages))
+
+(defun prelude-require-package (package)
+  "Install PACKAGE unless already installed."
+  (unless (memq package prelude-packages)
+    (add-to-list 'prelude-packages package))
+  (unless (package-installed-p package)
+    (package-install package)))
+
+(defun prelude-require-packages (packages)
+  "Ensure PACKAGES are installed.
+Missing packages are installed automatically."
+  (mapc #'prelude-require-package packages))
+
+(define-obsolete-function-alias 'prelude-ensure-module-deps 'prelude-require-packages)
 
 (defun prelude-install-packages ()
   "Install all packages listed in `prelude-packages'."
@@ -62,10 +79,20 @@
     (package-refresh-contents)
     (message "%s" " done.")
     ;; install the missing packages
-    (mapc #'package-install
-     (remove-if #'package-installed-p prelude-packages))))
+    (prelude-require-packages prelude-packages)))
 
+;; run package installation
 (prelude-install-packages)
+
+(defun prelude-list-foreign-packages ()
+  "Browse third-party packages not bundled with Prelude.
+
+Behaves similarly to `package-list-packages', but shows only the packages that
+are installed and are not in `prelude-packages'.  Useful for
+removing unwanted packages."
+  (interactive)
+  (package-show-package-list
+   (set-difference package-activated-list prelude-packages)))
 
 (defmacro prelude-auto-install (extension package mode)
   "When file with EXTENSION is opened triggers auto-install of PACKAGE.
@@ -95,7 +122,9 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
     ("\\.markdown\\'" markdown-mode markdown-mode)
     ("\\.md\\'" markdown-mode markdown-mode)
     ("\\.ml\\'" tuareg tuareg-mode)
+    ("\\.pp\\'" puppet-mode puppet-mode)
     ("\\.php\\'" php-mode php-mode)
+    ("PKGBUILD\\'" pkgbuild-mode pkgbuild-mode)
     ("\\.sass\\'" sass-mode sass-mode)
     ("\\.scala\\'" scala-mode2 scala-mode)
     ("\\.scss\\'" scss-mode scss-mode)
@@ -109,6 +138,9 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
 
+(when (package-installed-p 'pkgbuild-mode)
+  (add-to-list 'auto-mode-alist '("PKGBUILD\\'" . pkgbuild-mode)))
+
 ;; build auto-install mappings
 (mapc
  (lambda (entry)
@@ -118,11 +150,6 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
      (unless (package-installed-p package)
        (prelude-auto-install extension package mode))))
  prelude-auto-install-alist)
-
-(defun prelude-ensure-module-deps (packages)
-  "Ensure PACKAGES are installed.
-Missing packages are installed automatically."
-  (mapc #'package-install (remove-if #'package-installed-p packages)))
 
 (provide 'prelude-packages)
 ;; Local Variables:

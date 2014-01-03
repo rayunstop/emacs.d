@@ -1,3 +1,14 @@
+(require 'helm)
+(define-key helm-map [(tab)] 'helm-execute-persistent-action)
+(helm-mode 1)
+
+(require 'key-chord)
+(key-chord-define-global "UU" 'undo-tree-visualize)
+(key-chord-mode +1)
+
+(setq mac-command-modifier 'super)
+(setq mac-option-modifier 'meta)
+
 (setq-default cursor-type 'bar)
 
 (setq default-tab-width 4)
