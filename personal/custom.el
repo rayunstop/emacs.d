@@ -1,6 +1,6 @@
-(require 'helm)
-(define-key helm-map [(tab)] 'helm-execute-persistent-action)
-(helm-mode 1)
+;; (require 'helm)
+;; (define-key helm-map [(tab)] 'helm-execute-persistent-action)
+;; (helm-mode 1)
 
 (require 'key-chord)
 (key-chord-define-global "UU" 'undo-tree-visualize)
