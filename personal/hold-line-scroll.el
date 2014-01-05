@@ -14,3 +14,6 @@
 
 (global-set-key (kbd "M-n") 'hold-line-scroll-up)
 (global-set-key (kbd "M-p") 'hold-line-scroll-down)
+
+(provide 'hold-line-scroll)
+;;; hold-line-scroll.el ends here

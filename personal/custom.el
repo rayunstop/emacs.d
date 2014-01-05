@@ -1,6 +1,11 @@
+;;; Code:
+
 ;; (require 'helm)
 ;; (define-key helm-map [(tab)] 'helm-execute-persistent-action)
 ;; (helm-mode 1)
+
+(global-set-key (kbd "C-c C-d C-s") 'dash-at-point)
+(global-set-key (kbd "C-c C-r") 'rgrep)
 
 (require 'key-chord)
 (key-chord-define-global "UU" 'undo-tree-visualize)
@@ -9,9 +14,7 @@
 (setq mac-command-modifier 'super)
 (setq mac-option-modifier 'meta)
 
-(setq-default cursor-type 'bar)
-
-(setq default-tab-width 4)
+(edit-server-start)
 
 (setq-default indent-tabs-mode nil)
 
@@ -22,4 +25,9 @@
 
 (autoload 'hold-line-scroll "hold-line-scroll.el")
 
+(autoload 'multi-cursors "multi-cursors.el")
+
 (autoload 'theme "theme.el")
+
+(provide 'custom)
+;;; custom.el ends here

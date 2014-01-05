@@ -47,3 +47,6 @@
 (ac-config-default)
 
 (require 'go-autocomplete)
+
+(provide 'auto-complete)
+;;; auto-complete.el ends here
