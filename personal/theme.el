@@ -6,9 +6,7 @@
 
 ;;; Code:
 
-(prefer-coding-system 'utf-8)
-(prefer-coding-system 'gbk)
-(prefer-coding-system 'gb18030)
+(prefer-coding-system 'utf-8-unix)
 
 (defvar emacs-english-font "Monaco"
   "The font name of English.")
