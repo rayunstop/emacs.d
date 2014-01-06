@@ -16,3 +16,6 @@ places
 savefile/
 projectile-bookmarks.eld
 ac-comphist.dat
+.mc-lists.el
+RFC/
+tramp
