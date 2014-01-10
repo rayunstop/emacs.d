@@ -18,16 +18,7 @@
 
 (setq-default indent-tabs-mode nil)
 
-(autoload 'auto-complete "auto-complete.el")
-
 (add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
-(autoload 'systemtap-mode "systemtap-mode.el")
-
-(autoload 'hold-line-scroll "hold-line-scroll.el")
-
-(autoload 'multi-cursors "multi-cursors.el")
-
-(autoload 'theme "theme.el")
 
 (provide 'custom)
 ;;; custom.el ends here
