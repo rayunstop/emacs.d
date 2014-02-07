@@ -4,7 +4,6 @@
 ;; (define-key helm-map [(tab)] 'helm-execute-persistent-action)
 ;; (helm-mode 1)
 
-(global-set-key (kbd "C-c C-d C-s") 'dash-at-point)
 (global-set-key (kbd "C-c C-r") 'rgrep)
 
 (require 'key-chord)
