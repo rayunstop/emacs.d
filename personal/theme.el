@@ -44,13 +44,25 @@
 
 (set-font emacs-english-font emacs-cjk-font emacs-font-size-pair)
 
-(setq default-frame-alist '((top . 0) (left . 0) (height . 49) (width . 175)))
+
+(set-frame-size (selected-frame) 177 49)
+(set-frame-position (selected-frame) 0 0)
 
 (setq-default cursor-type 'bar)
 
 (scroll-bar-mode -1)
 
 (setq default-tab-width 4)
+
+(setq powerline-arrow-shape 'arrow14) ;; best for small fonts
+
+(custom-set-faces
+ '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
+ '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
+
+(setq powerline-color1 "grey22")
+(setq powerline-color2 "grey40")
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
