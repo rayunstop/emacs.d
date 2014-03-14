@@ -20,4 +20,3 @@
 (add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
 
 (provide 'custom)
-;;; custom.el ends here
