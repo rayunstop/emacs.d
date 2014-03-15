@@ -15,6 +15,8 @@
 
 (edit-server-start)
 
+(normal-erase-is-backspace-mode 1)
+
 (setq-default indent-tabs-mode nil)
 
 (add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
