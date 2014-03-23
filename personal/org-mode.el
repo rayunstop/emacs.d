@@ -9,5 +9,15 @@
               (org-display-inline-images))
             (global-set-key (kbd "C-c c i") 'org-insert-clipboard-image)))
 
+(setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
+(org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((dot . t)))
+(add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
+(setq org-babel-results-keyword "results")
+(defun bh/display-inline-images ()
+  (condition-case nil
+      (org-display-inline-images)
+    (error nil)))
+
 (provide 'org-mode)
 ;;; org-mode.el ends here
