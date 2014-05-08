@@ -19,19 +19,15 @@
       (org-display-inline-images)
     (error nil)))
 
+
 (defun org-babel-execute:scheme (body params)
-  (let* ((tangle (cdr (assoc :tangle params)))
-         (script-file
-          (if (string-equal tangle "no")
-              (org-babel-temp-file "org-babel-" ".rkt")
-            tangle)))
-    (with-temp-file script-file
-      (insert body))
-    (let* ((pn (org-babel-process-file-name script-file))
-           (cmd (format "racket -f %s" pn)))
-      (message cmd)
-      (shell-command-to-string cmd)
-      )))
+  (defvar-local cmd "")
+  (setq cmd (format "racket -e '%s'" body))
+  (message cmd)
+  (shell-command-to-string cmd)
+  )
+
+
 
 (provide 'org-mode)
 ;;; org-mode.el ends here

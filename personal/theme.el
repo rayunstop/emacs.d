@@ -20,7 +20,7 @@
 (if (not (find-font (font-spec :name "Hiragino Sans GB W3")))
     (setq emacs-cjk-font ""))
 
-(defvar emacs-font-size-pair '(13 . 16)
+(defvar emacs-font-size-pair '(12 . 14)
   "Default font size pair for (english . chinese)")
 
 (defvar emacs-font-size-pair-list
