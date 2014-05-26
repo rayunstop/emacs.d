@@ -7,6 +7,8 @@
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
 
-(add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+(add-hook 'go-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '(company-go))
+            (company-mode)
+            (global-set-key (kbd "C-c C-b") 'pop-tag-mark)))
