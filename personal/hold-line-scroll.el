@@ -12,8 +12,12 @@
   (let ((tmp (current-column)))
     (scroll-down 1)))
 
-(global-set-key (kbd "M-n") 'hold-line-scroll-up)
-(global-set-key (kbd "M-p") 'hold-line-scroll-down)
+(defun init-key-binding ()
+  (global-set-key (kbd "M-n") 'hold-line-scroll-up)
+  (global-set-key (kbd "M-p") 'hold-line-scroll-down))
+
+
+(init-key-binding)
 
 (provide 'hold-line-scroll)
 ;;; hold-line-scroll.el ends here
