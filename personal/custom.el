@@ -21,6 +21,10 @@
 
 (setq ns-use-srgb-colorspace t)
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
+;; (ido-vertical-mode t)
+
 (if window-system
     (custom-set-variables
      ;; custom-set-variables was added by Custom.
@@ -82,7 +86,6 @@
                            "#657b83"
                            )))))
 
-(custom-set-faces
- )
+(custom-set-faces)
 
 (provide 'custom)
