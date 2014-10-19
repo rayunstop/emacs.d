@@ -42,5 +42,6 @@
 
 (require 'init-web)
 
+(require 'init-company)
 
 (require 'custom)
