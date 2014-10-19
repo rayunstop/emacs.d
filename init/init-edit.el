@@ -9,10 +9,12 @@
 
 (setq-default indent-tabs-mode nil)
 
-(delete-selection-mode t)
+(delete-selection-mode +1)
 
-(global-auto-revert-mode t)
+(global-auto-revert-mode +1)
 
-(global-hl-line-mode t)
+(global-hl-line-mode +1)
+
+(show-paren-mode +1)
 
 (provide 'init-edit)

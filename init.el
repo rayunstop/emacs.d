@@ -30,12 +30,17 @@
 (require 'init-markdown-mode)
 
 (require 'init-smartparens)
-(require 'init-rainbow-delimiters)
+(require 'init-rainbow)
 
 (require 'init-window-manager)
 
 (require 'init-org)
 
 (require 'init-go)
+
+(require 'init-c)
+
+(require 'init-web)
+
 
 (require 'custom)
