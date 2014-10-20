@@ -1,17 +1,13 @@
-(require-package 'web-mode)
-(require 'web-mode)
+(require-package 'tidy)
+(add-hook 'html-mode-hook (lambda () (tidy-build-menu html-mode-map)))
 
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist
-             '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
+(require-package 'tagedit)
+(after-load 'sgml-mode
+  (tagedit-add-paredit-like-keybindings)
+  (add-hook 'sgml-mode-hook (lambda () (tagedit-mode 1))))
 
-(setq web-mode-enable-auto-pairing nil)
+(add-auto-mode 'html-mode "\\.(jsp|tmpl)\\'")
+
+;; Note: ERB is configured in init-ruby-mode
 
 (provide 'init-web)

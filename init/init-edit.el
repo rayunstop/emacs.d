@@ -17,6 +17,8 @@
 
 (show-paren-mode +1)
 
+(normal-erase-is-backspace-mode +1)
+
 (defun t-move-beginning-of-line (arg)
   (interactive "^p")
   (setq arg (or arg 1))
@@ -33,6 +35,5 @@
 
 (global-set-key [remap move-beginning-of-line]
                 't-move-beginning-of-line)
-
 
 (provide 'init-edit)

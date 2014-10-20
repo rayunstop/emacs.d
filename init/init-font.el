@@ -1,4 +1,3 @@
-
 (defvar emacs-english-font "Monaco"  "The font name of English.")
 
 (defvar emacs-cjk-font "Hiragino Sans GB W3"
