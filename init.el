@@ -19,6 +19,8 @@
 
 (require 'init-edit)
 
+(require 'init-flycheck)
+
 (require 'init-whitespace)
 
 (require 'init-undo-tree)
