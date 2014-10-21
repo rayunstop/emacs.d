@@ -15,6 +15,8 @@
 
 (global-hl-line-mode +1)
 
+(setq blink-matching-paren nil)
+
 (show-paren-mode +1)
 
 (normal-erase-is-backspace-mode +1)
@@ -35,5 +37,7 @@
 
 (global-set-key [remap move-beginning-of-line]
                 't-move-beginning-of-line)
+
+(global-set-key (kbd "C-j") 'default-indent-new-line)
 
 (provide 'init-edit)
