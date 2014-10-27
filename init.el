@@ -43,6 +43,7 @@
 (require 'init-window)
 
 (require 'init-org)
+(require 'init-image)
 
 (require 'init-lisp)
 (require 'init-go)
@@ -50,11 +51,15 @@
 (require 'init-js)
 (require 'init-web)
 (require 'init-php)
+(require 'init-lua)
 (require 'init-mmm)
 
 (require 'init-company)
 
 (require 'init-git)
+
+(setq user-mail-address "yzprofiles@gmail.com")
+(setq user-full-name "yzprofile")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

@@ -126,6 +126,7 @@
      (sql . nil)
      (sqlite . t))))
 
+(setq org-confirm-babel-evaluate nil)
 
 (add-hook 'org-mode-hook
           (lambda ()

@@ -11,4 +11,9 @@
 
 (global-set-key (kbd "M-k") 'kill-buffer-and-window)
 
+(defun switch-to-last-buffer ()
+  (interactive)
+  (switch-to-buffer nil))
+(global-set-key (kbd "C-x C-x") 'switch-to-last-buffer)
+
 (provide 'init-window)
