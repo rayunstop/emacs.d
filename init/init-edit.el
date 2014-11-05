@@ -21,6 +21,8 @@
 
 (normal-erase-is-backspace-mode +1)
 
+(prefer-coding-system 'utf-8-unix)
+
 (defun t-move-beginning-of-line (arg)
   (interactive "^p")
   (setq arg (or arg 1))
