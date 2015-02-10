@@ -46,6 +46,7 @@
 (require 'init-image)
 
 (require 'init-lisp)
+(require 'init-haskell)
 (require 'init-go)
 (require 'init-c)
 (require 'init-js)

@@ -4,6 +4,7 @@
       `((".*" ,temporary-file-directory t)))
 
 (prefer-coding-system 'utf-8-unix)
+(define-coding-system-alias 'UTF-8 'utf-8)
 
 (setq default-tab-width 4)
 
