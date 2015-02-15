@@ -45,10 +45,7 @@
        (set (make-local-variable 'company-backends) '(company-go))
 
        ;; El-doc for Go
-       (go-eldoc-setup)
-
-       ;; CamelCase aware editing operations
-       (subword-mode +1))
+       (go-eldoc-setup))
 
      (add-hook 'go-mode-hook (lambda ()
                                (run-hooks 'go-mode-defaults)))
