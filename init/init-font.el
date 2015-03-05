@@ -1,9 +1,9 @@
-(defvar emacs-english-font "Monaco"  "The font name of English.")
+(defvar emacs-english-font "Menlo"  "The font name of English.")
 
 (defvar emacs-cjk-font "Hiragino Sans GB W3"
   "The font name for CJK.")
 
-(if (not (find-font (font-spec :name "Monaco")))
+(if (not (find-font (font-spec :name "Menlo")))
     (setq emacs-english-font ""))
 
 (if (not (find-font (font-spec :name "Hiragino Sans GB W3")))
