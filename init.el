@@ -51,6 +51,7 @@
 (require 'init-c)
 (require 'init-js)
 (require 'init-web)
+(require 'init-python)
 (require 'init-php)
 (require 'init-lua)
 (require 'init-mmm)

@@ -130,6 +130,7 @@
 
 (add-hook 'org-mode-hook
           (lambda ()
+            (enable-whitespace)
             (defvar-local image-file "")
             (defun org-insert-clipboard-image ()
               (interactive)

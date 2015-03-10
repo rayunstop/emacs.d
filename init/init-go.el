@@ -20,8 +20,8 @@
           (lambda ()
             (set (make-local-variable 'company-backends) '(company-go))
             (company-mode)
-            (global-set-key (kbd "C-c C-b") 'pop-tag-mark)
-            (global-set-key (kbd "C-c t") 'go-test-current-file)
+            (local-set-key (kbd "C-c C-b") 'pop-tag-mark)
+            (local-set-key (kbd "C-c t") 'go-test-current-file)
             (add-hook 'before-save-hook 'gofmt-before-save nil t)))
 
 (eval-after-load 'go-mode
