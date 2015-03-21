@@ -50,6 +50,7 @@
 (require 'init-go)
 (require 'init-c)
 (require 'init-js)
+(require 'init-html)
 (require 'init-web)
 (require 'init-python)
 (require 'init-php)
