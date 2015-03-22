@@ -50,6 +50,7 @@
 (require 'init-go)
 (require 'init-c)
 (require 'init-js)
+(require 'init-coffee)
 (require 'init-html)
 (require 'init-web)
 (require 'init-python)
