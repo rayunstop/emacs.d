@@ -23,18 +23,14 @@
       org-tags-column 80)
 
 
-; Refile targets include this file and any file contributing to the agenda - up to 5 levels deep
 (setq org-refile-targets (quote ((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5))))
-; Targets start with the file name - allows creating level 1 tasks
 (setq org-refile-use-outline-path (quote file))
-; Targets complete in steps so we start with filename, TAB shows the next level of targets etc
 (setq org-outline-path-complete-in-steps t)
 
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
               (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)"))))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org clock
@@ -77,27 +73,6 @@
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
 
 
-;; ;; Show iCal calendars in the org agenda
-;; (when (and *is-a-mac* (require 'org-mac-iCal nil t))
-;;   (setq org-agenda-include-diary t
-;;         org-agenda-custom-commands
-;;         '(("I" "Import diary from iCal" agenda ""
-;;            ((org-agenda-mode-hook #'org-mac-iCal)))))
-
-;;   (add-hook 'org-agenda-cleanup-fancy-diary-hook
-;;             (lambda ()
-;;               (goto-char (point-min))
-;;               (save-excursion
-;;                 (while (re-search-forward "^[a-z]" nil t)
-;;                   (goto-char (match-beginning 0))
-;;                   (insert "0:00-24:00 ")))
-;;               (while (re-search-forward "^ [a-z]" nil t)
-;;                 (goto-char (match-beginning 0))
-;;                 (save-excursion
-;;                   (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
-;;                 (insert (match-string 0))))))
-
-
 (after-load 'org
   (define-key org-mode-map (kbd "C-M-<up>") 'org-up-element)
   (when *is-a-mac*
@@ -130,7 +105,6 @@
 
 (add-hook 'org-mode-hook
           (lambda ()
-            (enable-whitespace)
             (defvar-local image-file "")
             (defun org-insert-clipboard-image ()
               (interactive)
@@ -147,7 +121,6 @@
 (setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8002/plantuml.8002.jar")
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 
-
 (add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
 
 (setq org-babel-results-keyword "results")
@@ -160,7 +133,6 @@
   (defvar-local cmd "")
   (setq cmd (format "racket -e '%s'" body))
   (message cmd)
-  (shell-command-to-string cmd)
-  )
+  (shell-command-to-string cmd))
 
 (provide 'init-org)

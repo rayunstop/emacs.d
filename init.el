@@ -1,3 +1,6 @@
+(setq user-mail-address "yzprofiles@gmail.com")
+(setq user-full-name "yzprofile")
+
 (let ((minver 23))
   (unless (>= emacs-major-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher"
@@ -57,19 +60,17 @@
 (require 'init-php)
 (require 'init-lua)
 (require 'init-mmm)
-
 (require 'init-company)
-
 (require 'init-git)
-
-(setq user-mail-address "yzprofiles@gmail.com")
-(setq user-full-name "yzprofile")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("~/Library/Mobile Documents/com~apple~CloudDocs/GTD/inbox.org")))
  '(safe-local-variable-values (quote ((encoding . utf-8) (no-byte-compile t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

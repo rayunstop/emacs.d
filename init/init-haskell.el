@@ -1,5 +1,3 @@
-(load "haskell-mode-autoloads.el")
-
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
 
 (eval-after-load "haskell-mode"

@@ -15,6 +15,7 @@
 (multi-web-global-mode 1)
 
 
+(require-package 'sass-mode)
 
 (require-package 'tss)
 (require 'typescript)
