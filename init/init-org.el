@@ -1,10 +1,24 @@
 (when (< emacs-major-version 24)
   (require-package 'org))
 (require-package 'org-fstree)
+
 (when *is-a-mac*
   (require-package 'org-mac-link)
   (autoload 'org-mac-grab-link "org-mac-link" nil t)
-  (require-package 'org-mac-iCal))
+
+  (require-package 'org-mac-iCal)
+  (setq org-icalendar-with-timestamps 'active)
+  (setq org-icalendar-store-UID t)
+  (setq org-icalendar-alarm-time 30)
+  (setq org-icalendar-include-todo t)
+  (setq org-icalendar-use-deadline
+        (quote (event-if-todo event-if-not-todo todo-due)))
+  (setq org-icalendar-use-scheduled
+        (quote (event-if-todo event-if-not-todo todo-start)))
+  (setq org-icalendar-categories (quote (all-tags category)))
+  (setq org-icalendar-include-body t)
+
+  )
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)

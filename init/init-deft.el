@@ -1,5 +1,4 @@
 (require-package 'deft)
-(require 'deft)
 
 (setq icloud-path "~/Library/Mobile Documents/com~apple~CloudDocs/")
 (setq deft-extension "org")
@@ -8,6 +7,6 @@
 
 (defun gtd ()
   (interactive)
-  (find-file (concat icloud-path "GTD")))
+  (helm-browse-project-find-files (concat icloud-path "GTD")))
 
 (provide 'init-deft)

@@ -1,9 +1,6 @@
 (require-package 'window-numbering)
 (require-package 'windsize)
-
-(require 'window-numbering)
-(require 'windmove)
-(require 'windsize)
+(require-package 'windmove)
 
 (window-numbering-mode +1)
 (windmove-default-keybindings) ; C-<left/right/up/down>

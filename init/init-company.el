@@ -1,5 +1,4 @@
 (require-package 'company)
-(require 'company)
 
 (setq company-tooltip-limit 20)
 (setq company-minimum-prefix-length 0)

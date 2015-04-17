@@ -11,4 +11,10 @@
 
 (load-theme 'solarized-dark t)
 
+(setq ns-use-srgb-colorspace nil)
+
+(require-package 'powerline)
+(powerline-default-theme)
+
+
 (provide 'init-theme)

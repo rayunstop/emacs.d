@@ -62,6 +62,11 @@
 (require 'init-mmm)
 (require 'init-company)
 (require 'init-git)
+(require 'init-ace)
+(require 'init-guide-key)
+(require 'init-projectile)
+
+(setq inhibit-startup-message t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -70,11 +75,7 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
    (quote
-    ("~/Library/Mobile Documents/com~apple~CloudDocs/GTD/inbox.org")))
+    ("~/Library/Mobile Documents/com~apple~CloudDocs/GTD/done.org" "~/Library/Mobile Documents/com~apple~CloudDocs/GTD/project.org" "~/Library/Mobile Documents/com~apple~CloudDocs/GTD/life.org" "~/Library/Mobile Documents/com~apple~CloudDocs/GTD/task.org" "~/Library/Mobile Documents/com~apple~CloudDocs/GTD/inbox.org")))
  '(safe-local-variable-values (quote ((encoding . utf-8) (no-byte-compile t)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(mode-line ((t (:background "#055050" :foreground "#839496" :box (:line-width 1 :color "#073642" :style unspecified) :overline "#073642" :underline "#284b54")))))
+
+(custom-set-faces)

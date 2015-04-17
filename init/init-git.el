@@ -74,4 +74,7 @@
 (require-package 'git-messenger)
 (global-set-key (kbd "C-x v p") #'git-messenger:popup-message)
 
+
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (provide 'init-git)

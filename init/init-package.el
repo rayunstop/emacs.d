@@ -16,7 +16,8 @@ re-downloaded in order to locate PACKAGE."
         (package-install package)
       (progn
         (package-refresh-contents)
-        (require-package package min-version t)))))
+        (require-package package min-version t))))
+  (require package))
 
 (defmacro after-load (feature &rest body)
   "After FEATURE is loaded, evaluate BODY."

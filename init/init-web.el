@@ -16,7 +16,6 @@
 
 
 (require-package 'sass-mode)
-
 (require-package 'tss)
 (require 'typescript)
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))

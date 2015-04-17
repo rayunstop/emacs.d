@@ -1,18 +1,4 @@
-(defun hold-line-scroll-up()
-  "Scroll the page with the cursor in the same line"
-  (interactive)
-  (scroll-up 1))
-
-(defun hold-line-scroll-down()
-  "Scroll the page with the cursor in the same line"
-  (interactive)
-  ;; move the cursor also
-  (scroll-down 1))
-
-(defun init-key-binding ()
-  (global-set-key (kbd "M-n") 'hold-line-scroll-up)
-  (global-set-key (kbd "M-p") 'hold-line-scroll-down))
-
-(init-key-binding)
+(global-set-key (kbd "M-n") 'scroll-up-line)
+(global-set-key (kbd "M-p") 'scroll-down-line)
 
 (provide 'init-holdline-scroll)

@@ -24,3 +24,5 @@ org-caldav-a9a58e5.el
 org-caldav-backup.org
 .python-environments/
 roguel-ike-saves/
+bookmarks
+projectile.cache
