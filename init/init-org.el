@@ -95,6 +95,8 @@
   (when *is-a-mac*
     (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
 
+(setq org-replace-disputed-keys t)
+
 (after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages

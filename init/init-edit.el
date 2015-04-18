@@ -20,6 +20,8 @@
 
 (show-paren-mode +1)
 
+(global-subword-mode 1)
+
 (normal-erase-is-backspace-mode +1)
 
 (prefer-coding-system 'utf-8-unix)

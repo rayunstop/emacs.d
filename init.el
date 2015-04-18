@@ -32,8 +32,6 @@
 
 (require 'init-deft)
 
-(require 'init-grep)
-
 (require 'init-cscope)
 
 (require 'init-multi-cursors)
