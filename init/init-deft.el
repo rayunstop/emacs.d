@@ -1,12 +1,21 @@
 (require-package 'deft)
 
-(if (not (boundp 'note-path)) (setq note-path "~/"))
+(if (not (boundp 'note-directory)) (setq note-directory "~/Notes"))
 (setq deft-extension "org")
 (setq deft-text-mode 'org-mode)
-(setq deft-directory (concat note-path "Notes"))
+(setq deft-directory note-directory)
 
+(if (not (boundp 'gtd-directory)) (setq gtd-directory "~/GTD"))
 (defun gtd ()
   (interactive)
-  (helm-browse-project-find-files (concat note-path "GTD")))
+  (find-file (concat gtd-directory "/*.org") t))
+
+
+(defun note ()
+  (interactive)
+  (find-file note-file))
+
+(global-set-key (kbd "C-x M-g") 'gtd)
+(global-set-key (kbd "C-x M-n") 'note)
 
 (provide 'init-deft)

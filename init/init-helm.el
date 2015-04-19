@@ -20,4 +20,6 @@
 
 (global-set-key (kbd "C-x g") 'helm-do-grep)
 
+(eval-after-load "helm" '(diminish 'helm-mode "Ⓗ"))
+
 (provide 'init-helm)
