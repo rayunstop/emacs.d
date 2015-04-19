@@ -11,6 +11,7 @@
   (find-file (concat gtd-directory "/*.org") t))
 
 
+(if (not (boundp 'note-file)) (setq note-file "~/note.org"))
 (defun note ()
   (interactive)
   (find-file note-file))
