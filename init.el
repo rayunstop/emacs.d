@@ -9,6 +9,8 @@
 
 (require 'init-package)
 
+(require 'init-personal nil t)
+
 (require 'init-font)
 
 (require 'init-gui)

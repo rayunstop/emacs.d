@@ -1,6 +1,6 @@
 (require-package 'deft)
 
-(if (not note-path) (setq note-path "~/"))
+(if (not (boundp 'note-path)) (setq note-path "~/"))
 (setq deft-extension "org")
 (setq deft-text-mode 'org-mode)
 (setq deft-directory (concat note-path "Notes"))
