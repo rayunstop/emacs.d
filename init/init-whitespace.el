@@ -8,5 +8,6 @@
   (whitespace-mode +1))
 
 (add-hook 'prog-mode-hook #'enable-whitespace)
+(eval-after-load "whitespace" '(diminish 'whitespace-mode "ⓦ"))
 
 (provide 'init-whitespace)

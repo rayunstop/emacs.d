@@ -8,5 +8,6 @@
 
 (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list)
 
+(eval-after-load "flycheck" '(diminish 'flycheck-mode "ⓕ"))
 
 (provide 'init-flycheck)

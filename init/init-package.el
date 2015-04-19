@@ -37,5 +37,4 @@ re-downloaded in order to locate PACKAGE."
 
 (require-package 'diminish)
 
-
 (provide 'init-package)
