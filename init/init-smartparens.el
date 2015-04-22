@@ -2,6 +2,7 @@
 
 (require 'smartparens-config)  ;; load default config
 
-(eval-after-load "smartparens" '(diminish 'smartparens-mode "ⓟ"))
+(smartparens-global-mode 1)
+(sp-use-paredit-bindings)
 
 (provide 'init-smartparens)

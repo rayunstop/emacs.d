@@ -21,7 +21,6 @@
 (show-paren-mode +1)
 
 (global-subword-mode +1)
-(eval-after-load "subword" '(diminish 'subword-mode "ⓑ"))
 
 (normal-erase-is-backspace-mode +1)
 
@@ -53,7 +52,5 @@
 (require-package 'pangu-spacing)
 (setq pangu-spacing-real-insert-separtor t)
 (global-pangu-spacing-mode 1)
-
-(eval-after-load "pangu-spacing" '(diminish 'pangu-spacing-mode "ⓟ"))
 
 (provide 'init-edit)

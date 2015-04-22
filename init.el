@@ -16,6 +16,7 @@
 (require 'init-gui)
 
 (require 'init-theme)
+(require 'init-powerline)
 
 (require 'init-helm)
 

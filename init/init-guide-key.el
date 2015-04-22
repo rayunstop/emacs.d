@@ -6,6 +6,4 @@
 
 (guide-key-mode 1) ; Enable guide-key-mode
 
-(eval-after-load "guide-key" '(diminish 'guide-key-mode "Ⓖ"))
-
 (provide 'init-guide-key)

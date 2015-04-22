@@ -4,6 +4,5 @@
 (projectile-global-mode)
 (helm-projectile-on)
 
-(eval-after-load "projectile" '(diminish 'projectile-mode "Ⓟ"))
 
 (provide 'init-projectile)

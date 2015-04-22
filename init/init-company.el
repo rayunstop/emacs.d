@@ -10,6 +10,4 @@
 
 (global-company-mode 1)
 
-(eval-after-load "company" '(diminish 'company-mode "ⓒ"))
-
 (provide 'init-company)
