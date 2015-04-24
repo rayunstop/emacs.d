@@ -2,34 +2,44 @@
 
 (setq ns-use-srgb-colorspace nil)
 
-(defface pl-active0
-  '((t (:background "#FF8F00" :foreground "#FFFFFF" :inherit mode-line)))
-  "P face 0."
+(defface pl-active-blue
+  '((t (:background "#0266C8" :foreground "#FFFFFF" :inherit mode-line)))
+  "P face blue."
   :group 'powerline)
 
-(defface pl-inactive0
-  '((t (:background "#FFC107" :foreground "#FFFFFF" :inherit mode-line-inactive)))
-  "P face 0."
+(defface pl-inactive-blue
+  '((t (:background "#42A5F5" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  "P face blue."
   :group 'powerline)
 
-(defface pl-active1
-  '((t (:background "#FFC107" :foreground "#FFFFFF" :inherit mode-line)))
-  "P face 1."
+(defface pl-active-green
+  '((t (:background "#00933B" :foreground "#FFFFFF" :inherit mode-line)))
+  "P face green."
   :group 'powerline)
 
-(defface pl-inactive1
-  '((t (:background "#FFD54F" :foreground "#FFFFFF" :inherit mode-line-inactive)))
-  "P face 1."
+(defface pl-inactive-green
+  '((t (:background "#66BB6A" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  "P face green."
   :group 'powerline)
 
-(defface pl-active2
-  '((t (:background "#2196F3" :foreground "#FFFFFF" :inherit mode-line)))
-  "P face 1."
+(defface pl-active-red
+  '((t (:background "#F90101" :foreground "#FFFFFF" :inherit mode-line)))
+  "P face red."
   :group 'powerline)
 
-(defface pl-inactive2
-  '((t (:background "#64B5F6" :foreground "#FFFFFF" :inherit mode-line-inactive)))
-  "P face 1."
+(defface pl-inactive-red
+  '((t (:background "#EF5350" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  "P face red."
+  :group 'powerline)
+
+(defface pl-active-yellow
+  '((t (:background "#F2B50F" :foreground "#FFFFFF" :inherit mode-line)))
+  "P face yellow."
+  :group 'powerline)
+
+(defface pl-inactive-yellow
+  '((t (:background "#FFEE58" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  "P face yellow."
   :group 'powerline)
 
 (defun load-powerline-theme ()
@@ -41,59 +51,61 @@
      (:eval
       (let* ((active (powerline-selected-window-active))
              (mode-line (if active 'mode-line 'mode-line-inactive))
-             (face0 (if active 'pl-active0 'pl-inactive0))
-             (face1 (if active 'pl-active1 'pl-inactive1))
-             (face2 (if active 'pl-active2 'pl-inactive2))
+             (blue (if active 'pl-active-blue 'pl-inactive-blue))
+             (green (if active 'pl-active-green 'pl-inactive-green))
+             (red (if active 'pl-active-red 'pl-inactive-red))
+             (yellow (if active 'pl-active-yellow 'pl-inactive-yellow))
              (separator-left (intern (format "powerline-%s-%s"
                                              (powerline-current-separator)
                                              (car powerline-default-separator-dir))))
              (separator-right (intern (format "powerline-%s-%s"
                                               (powerline-current-separator)
                                               (cdr powerline-default-separator-dir))))
-             (lhs (list (powerline-raw "%*" face2 'l)
-                        (powerline-raw "%4l" face2 'l)
-                        (powerline-raw ":" face2 'l)
-                        (powerline-raw "%3c" face2 'r)
+             (lhs (list (powerline-raw "%*" blue 'l)
+                        (powerline-raw "%4l" blue 'l)
+                        (powerline-raw ":" blue 'l)
+                        (powerline-raw "%3c" blue 'r)
 
                         (when powerline-display-buffer-size
-                          (powerline-buffer-size face2 'l))
+                          (powerline-buffer-size blue 'l))
 
                         (when powerline-display-mule-info
-                          (powerline-raw mode-line-mule-info face2 'l))
+                          (powerline-raw mode-line-mule-info blue 'l))
 
-                        (funcall separator-left face2 nil)
+                        (funcall separator-left blue red)
 
-                        (powerline-buffer-id nil 'l)
+                        (set-face-attribute 'mode-line-buffer-id nil :foreground "#FFFFFF")
+                        (powerline-buffer-id red 'l)
+
                         (when (and (boundp 'which-func-mode) which-func-mode)
-                          (powerline-raw which-func-format nil 'l))
-                        (powerline-raw " ")
+                          (powerline-raw which-func-format red 'l))
+                        (powerline-raw " " red)
 
-                        (funcall separator-right nil face0)
+                        (funcall separator-left red yellow)
 
                         (when (boundp 'erc-modified-channels-object)
                           (powerline-raw erc-modified-channels-object nil 'l))
 
-                        (powerline-major-mode face0 'l)
-                        (powerline-process face0)
-                        (powerline-raw " " face0)
-                        (funcall separator-left face0 face1)
-                        (powerline-minor-modes face1 'l)
-                        (powerline-narrow face1 'l)
-                        (powerline-raw " " face1)
-                        (funcall separator-right face1 nil)
-                        (powerline-vc nil 'r)
-                        (when (bound-and-true-p nyan-mode)
-                          (powerline-raw (list (nyan-create)) nil 'l))))
-             (rhs (list (powerline-raw global-mode-string nil 'r)
-                        (funcall separator-right nil face1)
+                        (powerline-major-mode yellow 'l)
+                        (powerline-process yellow)
+                        (powerline-raw " " yellow)
+                        (funcall separator-left yellow blue)
+                        (powerline-minor-modes blue 'l)
+                        (powerline-narrow blue 'l)
+                        (powerline-raw " " blue)
+                        (funcall separator-right blue green)
+                        (powerline-vc green 'l)))
+
+             (rhs (list (powerline-raw global-mode-string green 'r)
+                        (funcall separator-right green red)
                         (unless window-system
-                          (powerline-raw (char-to-string #xe0a1) face1 'l))
-                        (powerline-raw " " face1)
-                        (powerline-raw "%6p" face1 'r)
+                          (powerline-raw (char-to-string #xe0a1) red 'l))
+                        (powerline-raw " " red)
+                        (powerline-raw "%6p" red 'r)
                         (when powerline-display-hud
-                          (powerline-hud mode-line face0)))))
+                          (powerline-hud mode-line blue)))))
         (concat (powerline-render lhs)
-                (powerline-fill mode-line (powerline-width rhs))
+                (powerline-fill green (powerline-width rhs))
                 (powerline-render rhs)))))))
 
 (load-powerline-theme)
