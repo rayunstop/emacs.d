@@ -49,8 +49,5 @@
       '("" invocation-name ": "(:eval (if (buffer-file-name)
                                           (abbreviate-file-name (buffer-file-name))
                                         "%b"))))
-(require-package 'pangu-spacing)
-(setq pangu-spacing-real-insert-separtor t)
-(global-pangu-spacing-mode 1)
 
 (provide 'init-edit)

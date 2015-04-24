@@ -2,7 +2,6 @@
 
 (setq ns-use-srgb-colorspace nil)
 
-
 (defface pl-active0
   '((t (:background "#FF8F00" :foreground "#FFFFFF" :inherit mode-line)))
   "P face 0."
@@ -51,32 +50,33 @@
              (separator-right (intern (format "powerline-%s-%s"
                                               (powerline-current-separator)
                                               (cdr powerline-default-separator-dir))))
-             (lhs (list (powerline-raw "%*" face0 'l)
-                        (powerline-raw "%4l" face0 'l)
-                        (powerline-raw ":" face0 'l)
-                        (powerline-raw "%3c" face0 'r)
+             (lhs (list (powerline-raw "%*" face2 'l)
+                        (powerline-raw "%4l" face2 'l)
+                        (powerline-raw ":" face2 'l)
+                        (powerline-raw "%3c" face2 'r)
 
                         (when powerline-display-buffer-size
-                          (powerline-buffer-size face0 'l))
+                          (powerline-buffer-size face2 'l))
 
                         (when powerline-display-mule-info
-                          (powerline-raw mode-line-mule-info face0 'l))
+                          (powerline-raw mode-line-mule-info face2 'l))
 
-                        (funcall separator-left face0 nil)
+                        (funcall separator-left face2 nil)
 
                         (powerline-buffer-id nil 'l)
                         (when (and (boundp 'which-func-mode) which-func-mode)
                           (powerline-raw which-func-format nil 'l))
                         (powerline-raw " ")
 
-                        (funcall separator-right nil face2)
+                        (funcall separator-right nil face0)
 
                         (when (boundp 'erc-modified-channels-object)
                           (powerline-raw erc-modified-channels-object nil 'l))
 
-                        (powerline-major-mode face2 'l)
-                        (powerline-process face2)
-                        (funcall separator-left face2 face1)
+                        (powerline-major-mode face0 'l)
+                        (powerline-process face0)
+                        (powerline-raw " " face0)
+                        (funcall separator-left face0 face1)
                         (powerline-minor-modes face1 'l)
                         (powerline-narrow face1 'l)
                         (powerline-raw " " face1)

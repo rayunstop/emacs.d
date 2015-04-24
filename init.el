@@ -17,6 +17,7 @@
 
 (require 'init-theme)
 (require 'init-powerline)
+;(require 'init-diminish)
 
 (require 'init-helm)
 

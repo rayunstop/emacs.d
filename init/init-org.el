@@ -16,9 +16,7 @@
   (setq org-icalendar-use-scheduled
         (quote (event-if-todo event-if-not-todo todo-start)))
   (setq org-icalendar-categories (quote (all-tags category)))
-  (setq org-icalendar-include-body t)
-
-  )
+  (setq org-icalendar-include-body t))
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
@@ -37,20 +35,30 @@
       org-tags-column 80)
 
 
-(setq org-refile-targets (quote ((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5))))
+(setq org-refile-targets (quote ((nil :maxlevel . 5)
+                                 (org-agenda-files :maxlevel . 5))))
 (setq org-refile-use-outline-path (quote file))
 (setq org-outline-path-complete-in-steps t)
 
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
-              (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)"))))
+      '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
+        (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)")))
+
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "#03A9F4" :weight bold))
+        ("STARTED" . (:foreground "#4CAF50" :weight bold))
+        ("DONE" . (:foreground "#FF6F00" :weight bold))
+        ("WAITING" . (:foreground "#F44336" :weight bold))
+        ("SOMEDAY" . (:foreground "#D500F9" :weight bold))
+        ("CANCELLED" . (:foreground "#9E9E9E" :weight bold))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org clock
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Save the running clock and all clock history when exiting Emacs, load it on startup
+;; Save the running clock and all clock history when exiting Emacs,
+;; load it on startup
 (setq org-clock-persistence-insinuate t)
 (setq org-clock-persist t)
 (setq org-clock-in-resume t)
