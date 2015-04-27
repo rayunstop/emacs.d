@@ -14,14 +14,6 @@
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
 
-
 (require-package 'sass-mode)
-(require-package 'tss)
-(require 'typescript)
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(setq tss-popup-help-key "C-c C-d")
-(setq tss-jump-to-definition-key "C-c C-j")
-(setq tss-implement-definition-key "C-c C-i")
-(tss-config-default)
 
 (provide 'init-web)

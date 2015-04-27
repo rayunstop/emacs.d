@@ -42,6 +42,9 @@
   "P face yellow."
   :group 'powerline)
 
+
+(setq powerline-default-separator 'alternate)
+
 (defun load-powerline-theme ()
   "Setup the default mode-line."
   (interactive)

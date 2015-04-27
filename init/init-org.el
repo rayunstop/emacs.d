@@ -142,7 +142,7 @@
 (setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
 (org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
 
-(setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8002/plantuml.8002.jar")
+(setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8018/plantuml.8018.jar")
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 
 (add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
@@ -158,5 +158,16 @@
   (setq cmd (format "racket -e '%s'" body))
   (message cmd)
   (shell-command-to-string cmd))
+
+;; (defun org-clocktable-indent-string-x (level)
+;;   (if (= level 1)
+;;       ""
+;;     (let ((str "^"))
+;;       (while (> level 2)
+;;         (setq level (1- level)
+;;               str (concat str "--")))
+;;       (concat str "-> "))))
+
+;; (advice-add 'org-clocktable-indent-string :override #'org-clocktable-indent-string-x)
 
 (provide 'init-org)
