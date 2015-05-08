@@ -2,6 +2,8 @@
   (require-package 'org))
 (require-package 'org-fstree)
 
+(setq org-src-fontify-natively t)
+
 (when *is-a-mac*
   (require-package 'org-mac-link)
   (autoload 'org-mac-grab-link "org-mac-link" nil t)
@@ -158,16 +160,5 @@
   (setq cmd (format "racket -e '%s'" body))
   (message cmd)
   (shell-command-to-string cmd))
-
-;; (defun org-clocktable-indent-string-x (level)
-;;   (if (= level 1)
-;;       ""
-;;     (let ((str "^"))
-;;       (while (> level 2)
-;;         (setq level (1- level)
-;;               str (concat str "--")))
-;;       (concat str "-> "))))
-
-;; (advice-add 'org-clocktable-indent-string :override #'org-clocktable-indent-string-x)
 
 (provide 'init-org)

@@ -1,14 +1,8 @@
-(require-package 'ace-isearch)
+(require-package 'ace-jump-mode)
 
-(global-ace-isearch-mode +1)
-
-(custom-set-variables
- '(ace-isearch-input-length 7)
- '(ace-isearch-input-idle-delay 0.8)
- '(ace-isearch-submode 'ace-jump-char-mode)
- '(ace-isearch-use-ace-jump 'printing-char))
-
-(ace-isearch-set-ace-jump-after-isearch-exit t)
+(define-key global-map (kbd "M-g c") 'ace-jump-char-mode)
+(define-key global-map (kbd "M-g w") 'ace-jump-word-mode)
+(define-key global-map (kbd "M-g l") 'ace-jump-line-mode)
 
 (require-package 'ace-window)
 (global-set-key (kbd "C-x o") 'ace-window)

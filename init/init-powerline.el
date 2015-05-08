@@ -43,7 +43,7 @@
   :group 'powerline)
 
 
-(setq powerline-default-separator 'alternate)
+(setq powerline-default-separator 'arrow)
 
 (defun load-powerline-theme ()
   "Setup the default mode-line."

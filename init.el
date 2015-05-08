@@ -47,6 +47,7 @@
 (require 'init-org)
 (require 'init-image)
 
+(require 'init-erlang)
 (require 'init-lisp)
 (require 'init-haskell)
 (require 'init-go)
