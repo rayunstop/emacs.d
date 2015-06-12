@@ -50,4 +50,12 @@
                                           (abbreviate-file-name (buffer-file-name))
                                         "%b"))))
 
+(defun dos2unix ()
+  "Automate M-% C-q C-m RET RET"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward (string ?\C-m)  nil t)
+      (replace-match "" nil t))))
+
 (provide 'init-edit)
