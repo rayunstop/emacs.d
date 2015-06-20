@@ -51,7 +51,6 @@
                                         "%b"))))
 
 (defun dos2unix ()
-  "Automate M-% C-q C-m RET RET"
   (interactive)
   (save-excursion
     (goto-char (point-min))

@@ -46,7 +46,7 @@
 
 (require 'init-org)
 (require 'init-image)
-
+(require 'init-yasnippet)
 (require 'init-erlang)
 (require 'init-lisp)
 (require 'init-haskell)
