@@ -12,7 +12,6 @@
               helm-autoresize-min-height 10
               helm-autoresize-max-height 35
               helm-split-window-in-side-p t
-
               helm-M-x-fuzzy-match t
               helm-buffers-fuzzy-matching t
               helm-recentf-fuzzy-match t
@@ -27,10 +26,5 @@
   '(progn
      (define-key company-mode-map (kbd "C-:") 'helm-company)
      (define-key company-active-map (kbd "C-:") 'helm-company)))
-
-(require-package 'helm-flycheck) ;; Not necessary if using ELPA package
-(eval-after-load 'flycheck
-  '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
-
 
 (provide 'init-helm)
