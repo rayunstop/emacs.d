@@ -3,6 +3,7 @@
 
 
 (defun erlang-after-load-hook ()
+  (interactive)
   (setq flycheck-erlang-include-path (list "../include/"))
   (setq erlang-root-dir "/usr/local/opt/erlang/lib/erlang")
   (setq exec-path (cons "/usr/local/bin" exec-path))
@@ -10,7 +11,8 @@
                                    erlang-electric-semicolon))
   (cscope-minor-mode)
   (require 'erlang-start)
-  (require 'edts-start))
+  ;; (require 'edts-start)
+  )
 
 (add-hook 'erlang-mode-hook 'erlang-after-load-hook)
 

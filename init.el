@@ -19,6 +19,7 @@
 (require 'init-powerline)
 ;(require 'init-diminish)
 
+(require 'init-dash)
 (require 'init-helm)
 
 (require 'init-edit)
@@ -61,7 +62,7 @@
 (require 'init-lua)
 (require 'init-mmm)
 (require 'init-company)
-(require 'init-git)
+;; (require 'init-git)
 (require 'init-ace)
 (require 'init-guide-key)
 (require 'init-projectile)
