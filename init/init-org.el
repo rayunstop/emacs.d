@@ -161,4 +161,6 @@
   (message cmd)
   (shell-command-to-string cmd))
 
+(setq org-src-tab-acts-natively t)
+
 (provide 'init-org)

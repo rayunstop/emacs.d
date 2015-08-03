@@ -1,11 +1,12 @@
+(require-package 'jedi)
+(require-package 'company-jedi)
+
 (defun init-python-mode()
   "init python mode"
-  (setq jedi:complete-on-dot t)
-  (jedi:setup))
+  (add-to-list 'company-backends 'company-jedi))
 
 
 (add-hook 'python-mode-hook 'init-python-mode nil t)
-
-(setq jedi:server-command '("~/.emacs.d/.python-environments/default/bin/jediepcserver"))
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 (provide 'init-python)

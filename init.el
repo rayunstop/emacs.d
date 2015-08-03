@@ -62,7 +62,7 @@
 (require 'init-lua)
 (require 'init-mmm)
 (require 'init-company)
-;; (require 'init-git)
+
 (require 'init-ace)
 (require 'init-guide-key)
 (require 'init-projectile)
