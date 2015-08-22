@@ -2,7 +2,6 @@
   (require-package 'color-theme))
 
 (require-package 'color-theme-sanityinc-solarized)
-(require-package 'color-theme-sanityinc-tomorrow)
 
 ;;------------------------------------------------------------------------------
 ;; Old-style color theming support (via color-theme.el)
