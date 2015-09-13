@@ -1,8 +1,8 @@
-(require-package 'ace-jump-mode)
+(require-package 'avy)
 
-(define-key global-map (kbd "M-g c") 'ace-jump-char-mode)
-(define-key global-map (kbd "M-g w") 'ace-jump-word-mode)
-(define-key global-map (kbd "M-g l") 'ace-jump-line-mode)
+(define-key global-map (kbd "M-g c") 'avy-goto-char)
+(define-key global-map (kbd "M-g w") 'avy-goto-word-or-subword-1)
+(define-key global-map (kbd "M-g l") 'avy-goto-line)
 
 (require-package 'ace-window)
 (global-set-key (kbd "C-x o") 'ace-window)

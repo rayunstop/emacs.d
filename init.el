@@ -8,6 +8,7 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 (require 'init-package)
+(require 'init-exec-path)
 
 (require 'init-personal nil t)
 
@@ -54,6 +55,7 @@
 (require 'init-go)
 (require 'init-c)
 (require 'init-js)
+(require 'init-sql)
 (require 'init-coffee)
 (require 'init-html)
 (require 'init-web)

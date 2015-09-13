@@ -1,4 +1,5 @@
 (require-package 'helm)
+(require-package 'helm-ag)
 
 (require 'helm-config)
 (helm-mode t)
@@ -17,10 +18,7 @@
               helm-recentf-fuzzy-match t
               helm-apropos-fuzzy-match t)
 
-(eval-after-load 'helm-grep
-  '(setq helm-grep-default-command helm-grep-default-recurse-command))
-
-(global-set-key (kbd "C-x g") 'helm-do-grep)
+(global-set-key (kbd "C-x g") 'helm-do-ag)
 
 (eval-after-load 'company
   '(progn

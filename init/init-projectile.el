@@ -1,8 +1,8 @@
 (require-package 'projectile)
-;; (require-package 'helm-projectile)
+(require-package 'helm-projectile)
 
 (projectile-global-mode)
-;; (helm-projectile-on)
+(helm-projectile-on)
 
 
 (provide 'init-projectile)

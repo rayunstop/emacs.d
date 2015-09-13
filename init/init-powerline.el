@@ -2,43 +2,44 @@
 
 (setq ns-use-srgb-colorspace nil)
 
+
 (defface pl-active-blue
-  '((t (:background "#0266C8" :foreground "#FFFFFF" :inherit mode-line)))
+  '((t (:background "#4885ed" :foreground "#FFFFFF" :inherit mode-line)))
   "P face blue."
   :group 'powerline)
 
 (defface pl-inactive-blue
-  '((t (:background "#42A5F5" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  '((t (:background "#00A1F1" :foreground "#FFFFFF" :inherit mode-line-inactive)))
   "P face blue."
   :group 'powerline)
 
 (defface pl-active-green
-  '((t (:background "#00933B" :foreground "#FFFFFF" :inherit mode-line)))
+  '((t (:background "#3cba54" :foreground "#FFFFFF" :inherit mode-line)))
   "P face green."
   :group 'powerline)
 
 (defface pl-inactive-green
-  '((t (:background "#66BB6A" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  '((t (:background "#7CBB00" :foreground "#FFFFFF" :inherit mode-line-inactive)))
   "P face green."
   :group 'powerline)
 
 (defface pl-active-red
-  '((t (:background "#F90101" :foreground "#FFFFFF" :inherit mode-line)))
+  '((t (:background "#db3236" :foreground "#FFFFFF" :inherit mode-line)))
   "P face red."
   :group 'powerline)
 
 (defface pl-inactive-red
-  '((t (:background "#EF5350" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  '((t (:background "#F65314" :foreground "#FFFFFF" :inherit mode-line-inactive)))
   "P face red."
   :group 'powerline)
 
 (defface pl-active-yellow
-  '((t (:background "#F2B50F" :foreground "#FFFFFF" :inherit mode-line)))
+  '((t (:background "#f4c20d" :foreground "#FFFFFF" :inherit mode-line)))
   "P face yellow."
   :group 'powerline)
 
 (defface pl-inactive-yellow
-  '((t (:background "#FFEE58" :foreground "#FFFFFF" :inherit mode-line-inactive)))
+  '((t (:background "#FFBB00" :foreground "#FFFFFF" :inherit mode-line-inactive)))
   "P face yellow."
   :group 'powerline)
 
