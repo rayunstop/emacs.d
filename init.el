@@ -64,10 +64,11 @@
 (require 'init-lua)
 (require 'init-mmm)
 (require 'init-company)
-
+(require 'init-codesearch)
 (require 'init-ace)
 (require 'init-guide-key)
 (require 'init-projectile)
+(require 'init-exwm)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)

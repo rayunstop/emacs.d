@@ -6,7 +6,7 @@
 (prefer-coding-system 'utf-8-unix)
 (define-coding-system-alias 'UTF-8 'utf-8)
 
-(setq default-tab-width 4)
+(setq tab-width 4)
 
 (setq-default indent-tabs-mode nil)
 
@@ -44,6 +44,9 @@
                 't-move-beginning-of-line)
 
 (global-set-key (kbd "C-j") 'default-indent-new-line)
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-x ?") 'help-command)
+
 
 (setq frame-title-format
       '("" invocation-name ": "(:eval (if (buffer-file-name)

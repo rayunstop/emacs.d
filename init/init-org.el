@@ -98,28 +98,11 @@
 
 
 (after-load 'org
-  (define-key org-mode-map (kbd "C-M-<up>") 'org-up-element)
-  (when *is-a-mac*
-    (define-key org-mode-map (kbd "M-h") nil))
-  (define-key org-mode-map (kbd "C-M-<up>") 'org-up-element)
   (when *is-a-mac*
     (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
 
 (setq org-replace-disputed-keys t)
 (setq org-confirm-babel-evaluate nil)
-;; (setq org-src-tab-acts-natively t)
-
-(add-hook 'org-mode-hook
-          (lambda ()
-            (defvar-local image-file "")
-            (defun org-insert-clipboard-image ()
-              (interactive)
-              (setq image-file (read-from-minibuffer "image:"))
-              (call-process "pngpaste" nil nil nil image-file)
-              (org-insert-link nil (concat "file:" image-file) "")
-              (org-display-inline-images))
-            (global-set-key (kbd "C-c c i") 'org-insert-clipboard-image)))
-
 
 (setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
 (org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
@@ -127,13 +110,7 @@
 (setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8018/plantuml.8018.jar")
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 
-(add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
-
 (setq org-babel-results-keyword "results")
-(defun bh/display-inline-images ()
-  (condition-case nil
-      (org-display-inline-images)
-    (error nil)))
 
 (defun org-babel-execute:scheme (body params)
   (defvar-local cmd "")
@@ -141,12 +118,11 @@
   (message cmd)
   (shell-command-to-string cmd))
 
-
-
 (after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((R . t)
+   '(
+     (R . t)
      (ditaa . t)
      (dot . t)
      (emacs-lisp . t)
@@ -161,6 +137,8 @@
      (screen . nil)
      (sh . t)
      (sql . nil)
-     (sqlite . t))))
+     (sqlite . t)
+     (elasticsearch . t)
+     )))
 
 (provide 'init-org)
