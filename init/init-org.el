@@ -138,7 +138,6 @@
      (sh . t)
      (sql . nil)
      (sqlite . t)
-     (elasticsearch . t)
      )))
 
 (provide 'init-org)
