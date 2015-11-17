@@ -30,7 +30,8 @@
 
   (company-mode)
   (local-set-key (kbd "C-c C-b") 'pop-tag-mark)
-  (local-set-key (kbd "C-c t") 'go-test-current-file))
+  (local-set-key (kbd "C-c t") 'go-test-current-file)
+  (setq tab-width 4))
 
 (add-hook 'go-mode-hook 'go-mode-defaults)
 

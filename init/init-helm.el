@@ -28,7 +28,9 @@
      (define-key company-active-map (kbd "C-:") 'helm-company)))
 
 (require-package 'swiper-helm)
+
 (global-set-key (kbd "C-s") 'swiper-helm)
 (global-set-key (kbd "C-r") 'swiper-helm)
+
 
 (provide 'init-helm)

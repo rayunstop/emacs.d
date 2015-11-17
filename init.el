@@ -8,6 +8,7 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 (require 'init-package)
+
 (require 'init-exec-path)
 
 (require 'init-personal nil t)
