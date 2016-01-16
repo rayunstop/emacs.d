@@ -6,19 +6,7 @@
 
 (when *is-a-mac*
   (require-package 'org-mac-link)
-  (autoload 'org-mac-grab-link "org-mac-link" nil t)
-
-  (require-package 'org-mac-iCal)
-  (setq org-icalendar-with-timestamps 'active)
-  (setq org-icalendar-store-UID t)
-  (setq org-icalendar-alarm-time 30)
-  (setq org-icalendar-include-todo t)
-  (setq org-icalendar-use-deadline
-        (quote (event-if-todo event-if-not-todo todo-due)))
-  (setq org-icalendar-use-scheduled
-        (quote (event-if-todo event-if-not-todo todo-start)))
-  (setq org-icalendar-categories (quote (all-tags category)))
-  (setq org-icalendar-include-body t))
+  (autoload 'org-mac-grab-link "org-mac-link" nil t))
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
@@ -103,13 +91,6 @@
 
 (setq org-replace-disputed-keys t)
 (setq org-confirm-babel-evaluate nil)
-
-(setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
-(org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)))
-
-(setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/8018/plantuml.8018.jar")
-(org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
-
 (setq org-babel-results-keyword "results")
 
 (defun org-babel-execute:scheme (body params)
@@ -124,6 +105,7 @@
    '(
      (R . t)
      (ditaa . t)
+     (plantuml . t)
      (dot . t)
      (emacs-lisp . t)
      (gnuplot . t)

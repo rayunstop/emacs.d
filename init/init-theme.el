@@ -70,4 +70,5 @@ ignored: use `custom-enabled-themes' instead."
   (interactive)
   (color-theme-sanityinc-solarized-dark))
 
+
 (provide 'init-theme)

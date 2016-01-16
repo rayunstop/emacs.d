@@ -44,7 +44,8 @@
   :group 'powerline)
 
 
-(setq powerline-default-separator 'arrow)
+(setq powerline-default-separator 'slant)
+
 
 (defun load-powerline-theme ()
   "Setup the default mode-line."
@@ -59,10 +60,10 @@
              (green (if active 'pl-active-green 'pl-inactive-green))
              (red (if active 'pl-active-red 'pl-inactive-red))
              (yellow (if active 'pl-active-yellow 'pl-inactive-yellow))
-             (separator-left (intern (format "powerline-%s-%s"
+             (separator-right (intern (format "powerline-%s-%s"
                                              (powerline-current-separator)
                                              (car powerline-default-separator-dir))))
-             (separator-right (intern (format "powerline-%s-%s"
+             (separator-left (intern (format "powerline-%s-%s"
                                               (powerline-current-separator)
                                               (cdr powerline-default-separator-dir))))
              (lhs (list (powerline-raw "%*" blue 'l)
@@ -85,7 +86,7 @@
                           (powerline-raw which-func-format red 'l))
                         (powerline-raw " " red)
 
-                        (funcall separator-left red yellow)
+                        (funcall separator-right red yellow)
 
                         (when (boundp 'erc-modified-channels-object)
                           (powerline-raw erc-modified-channels-object nil 'l))

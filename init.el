@@ -19,8 +19,8 @@
 
 (require 'init-theme)
 (require 'init-powerline)
-;(require 'init-diminish)
-
+; (require 'init-diminish)
+; (require 'init-term)
 (require 'init-dash)
 (require 'init-helm)
 
@@ -69,6 +69,7 @@
 (require 'init-ace)
 (require 'init-guide-key)
 (require 'init-projectile)
+
 ;; (require 'init-exwm)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

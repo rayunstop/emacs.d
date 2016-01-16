@@ -4,7 +4,7 @@
 (require 'helm-config)
 (helm-mode t)
 
-(setq helm-move-to-line-cycle-in-source t)
+(setq helm-move-to-line-cycle-in-source nil)
 
 (helm-autoresize-mode t)
 (global-set-key (kbd "M-x") 'helm-M-x)
