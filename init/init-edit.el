@@ -60,4 +60,7 @@
     (while (search-forward (string ?\C-m)  nil t)
       (replace-match "" nil t))))
 
+(global-set-key (kbd "M-n") 'scroll-up-line)
+(global-set-key (kbd "M-p") 'scroll-down-line)
+
 (provide 'init-edit)

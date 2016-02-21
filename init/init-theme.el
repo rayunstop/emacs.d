@@ -2,6 +2,7 @@
   (require-package 'color-theme))
 
 (require-package 'color-theme-sanityinc-solarized)
+;; (require-package 'spacemacs-theme)
 
 ;;------------------------------------------------------------------------------
 ;; Old-style color theming support (via color-theme.el)
@@ -69,6 +70,5 @@ ignored: use `custom-enabled-themes' instead."
   "Activate a dark color theme."
   (interactive)
   (color-theme-sanityinc-solarized-dark))
-
 
 (provide 'init-theme)

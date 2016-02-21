@@ -17,8 +17,9 @@
 
 (require 'init-gui)
 
-(require 'init-theme)
-(require 'init-powerline)
+(require 'init-spacetheme)
+; (require 'init-theme)
+; (require 'init-powerline)
 ; (require 'init-diminish)
 ; (require 'init-term)
 (require 'init-dash)
@@ -31,8 +32,6 @@
 (require 'init-whitespace)
 
 (require 'init-undo-tree)
-
-(require 'init-holdline-scroll)
 
 (require 'init-deft)
 
