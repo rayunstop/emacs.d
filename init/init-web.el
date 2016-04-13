@@ -1,19 +1,24 @@
-(require-package 'multi-web-mode)
+(require-package 'web-mode)
+(require-package 'web-beautify)
 
-(setq mweb-default-major-mode 'html-mode)
-(add-hook 'html-mode
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+
+(require-package 'coffee-mode)
+(add-hook 'coffee-mode-hook
           (lambda ()
-            (enable-whitespace)))
+            (enable-whitespace)
+            (custom-set-variables '(coffee-tab-width 4))
+            (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
+            (define-key coffee-mode-map (kbd "C-j") 'coffee-newline-and-indent)
+            (add-hook 'after-save-hook 'coffee-compile-file nil t)))
 
-(setq mweb-tags
-      '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
-        (js2-mode "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
-        (coffee-mode "<script +\\(type=\"text/coffeescript\"\\|language=\"coffeescript\"\\)[^>]*>" "</script>")
-        (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
-
-(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
-(multi-web-global-mode 1)
-
-(require-package 'sass-mode)
 
 (provide 'init-web)

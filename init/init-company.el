@@ -1,4 +1,5 @@
 (require-package 'company)
+(require-package 'company-shell)
 
 (setq company-tooltip-limit 20)
 (setq company-minimum-prefix-length 0)
@@ -20,6 +21,7 @@
             '(:with company-yasnippet))))
 
 (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+(add-to-list 'company-backends 'company-shell)
 
 (custom-set-faces
  '(company-preview

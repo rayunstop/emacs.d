@@ -11,9 +11,9 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 
-(setq-default helm-display-header-line nil
-              helm-autoresize-min-height 10
-              helm-autoresize-max-height 35
+(setq-default helm-display-header-line t
+              helm-autoresize-min-height 20
+              helm-autoresize-max-height 20
               helm-split-window-in-side-p t
               helm-M-x-fuzzy-match t
               helm-buffers-fuzzy-matching t
@@ -22,15 +22,21 @@
 
 (global-set-key (kbd "C-x g") 'helm-do-ag)
 
-(eval-after-load 'company
-  '(progn
-     (define-key company-mode-map (kbd "C-:") 'helm-company)
-     (define-key company-active-map (kbd "C-:") 'helm-company)))
+(require-package 'helm-cscope)
 
-(require-package 'swiper-helm)
 
-(global-set-key (kbd "C-s") 'swiper-helm)
-(global-set-key (kbd "C-r") 'swiper-helm)
+(add-hook 'c-mode-common-hook 'helm-cscope-mode)
+(add-hook 'helm-cscope-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-.") 'helm-cscope-find-global-definition)
+            (local-set-key (kbd "M-@") 'helm-cscope-find-calling-this-funtcion)
+            (local-set-key (kbd "M-s") 'helm-cscope-find-this-symbol)
+            (local-set-key (kbd "M-,") 'helm-cscope-pop-mark)))
+
+(require-package 'helm-codesearch)
+(define-key global-map (kbd "C-c h f") 'helm-codesearch-find-file)
+(define-key global-map (kbd "C-c h t") 'helm-codesearch-find-pattern)
+(define-key global-map (kbd "C-c h I") 'helm-codesearch-create-csearchindex)
 
 
 (provide 'init-helm)
