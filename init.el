@@ -43,6 +43,7 @@
 (require 'init-go)
 (require 'init-c)
 (require 'init-sql)
+(require 'init-actionscript)
 (require 'init-web)
 (require 'init-python)
 (require 'init-lua)

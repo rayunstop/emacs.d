@@ -18,4 +18,9 @@
 
 (add-hook 'erlang-mode-hook 'erlang-after-load-hook)
 
+(require-package 'alchemist)
+(require-package 'elixir-mode)
+(require-package 'elixir-yasnippets)
+(require-package 'flycheck-elixir)
+
 (provide 'init-erlang)
