@@ -14,4 +14,3 @@
 ;; load custom file
 (load-file custom-file)
 
-load

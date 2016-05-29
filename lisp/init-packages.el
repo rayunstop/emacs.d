@@ -24,17 +24,17 @@
 	       popwin
 	       ) "Default packages")
 
-(setq package-selected-packages my/packages)
+(setq package-selected-packages ray/packages)
 
 (defun ray/packages-installed-p ()
-    (loop for pkg in my/packages
+    (loop for pkg in ray/packages
 	  when (not (package-installed-p pkg)) do (return nil)
 	  finally (return t)))
 
 (unless (ray/packages-installed-p)
     (message "%s" "Refreshing package database...")
     (package-refresh-contents)
-    (dolist (pkg my/packages)
+    (dolist (pkg ray/packages)
       (when (not (package-installed-p pkg))
 	(package-install pkg))))
 
