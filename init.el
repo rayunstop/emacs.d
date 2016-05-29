@@ -1,63 +1,17 @@
-(let ((minver 23))
-  (unless (>= emacs-major-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher"
-           minver)))
+(package-initialize)
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
-(add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
-
-(defconst *is-a-mac* (eq system-type 'darwin))
-
-(require 'init-package)
-(require 'init-exec-path)
-(require 'init-personal nil t)
-(require 'init-font)
-(require 'init-gui)
-;; (require 'init-spacetheme)
-
-;; (require 'init-theme)
-;; (require 'init-powerline)
-;; (require 'init-diminish)
-;; (require 'init-term)
-
-(require 'init-dash)
-(require 'init-helm)
-(require 'init-swiper)
-(require 'init-edit)
-(require 'init-flycheck)
-(require 'init-whitespace)
-(require 'init-undo-tree)
-(require 'init-deft)
-(require 'init-cscope)
-(require 'init-multi-cursors)
-(require 'init-markdown-mode)
-(require 'init-smartparens)
-(require 'init-rainbow)
-(require 'init-window)
-
+;; import config
+(require 'init-packages)
+(require 'init-ui)
+(require 'init-keybindings)
+(require 'init-defaults)
 (require 'init-org)
-(require 'init-image)
-(require 'init-yasnippet)
-(require 'init-erlang)
-(require 'init-lisp)
-(require 'init-haskell)
-(require 'init-go)
-(require 'init-c)
-(require 'init-sql)
-(require 'init-actionscript)
-(require 'init-web)
-(require 'init-python)
-(require 'init-lua)
-(require 'init-company)
-(require 'init-codesearch)
-(require 'init-ace)
-(require 'init-guide-key)
-(require 'init-projectile)
 
-;; load monokai
-(load-theme 'monokai t)
+;; custom config
+(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 
-;; (require 'init-exwm)
-(set-face-bold-p 'bold nil)
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
+;; load custom file
+(load-file custom-file)
+
+load
