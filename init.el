@@ -12,7 +12,7 @@
 (require 'init-personal nil t)
 (require 'init-font)
 (require 'init-gui)
-(require 'init-spacetheme)
+;; (require 'init-spacetheme)
 
 ;; (require 'init-theme)
 ;; (require 'init-powerline)
@@ -53,8 +53,11 @@
 (require 'init-guide-key)
 (require 'init-projectile)
 
-;; (require 'init-exwm)
+;; load monokai
+(load-theme 'monokai t)
 
+;; (require 'init-exwm)
+(set-face-bold-p 'bold nil)
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))

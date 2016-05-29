@@ -33,10 +33,10 @@
  '(company-tooltip-selection
    ((t (:background "steelblue" :foreground "white"))))
  '(company-tooltip-common
-   ((((type x)) (:inherit company-tooltip :weight bold))
+   ((((type x)) (:inherit company-tooltip))
     (t (:inherit company-tooltip))))
  '(company-tooltip-common-selection
-   ((((type x)) (:inherit company-tooltip-selection :weight bold))
+   ((((type x)) (:inherit company-tooltip-selection))
     (t (:inherit company-tooltip-selection)))))
 
 

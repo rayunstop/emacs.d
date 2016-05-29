@@ -9,6 +9,7 @@
 (blink-cursor-mode -1)
 
 (line-number-mode t)
+(global-linum-mode t)
 
 (column-number-mode t)
 

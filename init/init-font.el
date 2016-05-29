@@ -4,7 +4,7 @@
 (defvar emacs-cjk-font "Hiragino Sans GB W3"
   "The font name for CJK.")
 
-(defvar emacs-font-size-pair '(12 . 14)
+(defvar emacs-font-size-pair '(13 . 16)
   "Default font size pair for (english . chinese)")
 
   (defun font-exist-p (fontname)
